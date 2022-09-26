@@ -1,0 +1,52 @@
+{
+  "name": "smoothstack-careers-api",
+  "version": "1.0.0",
+  "description": "Serverless aws-nodejs-typescript template",
+  "main": "serverless.ts",
+  "scripts": {
+    "start": "sls offline start",
+    "start:tunnel": "sls offline start --tunnel true",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^1.8.0",
+    "@middy/core": "^1.5.2",
+    "@middy/http-cors": "^2.5.1",
+    "@middy/http-json-body-parser": "^1.5.2",
+    "@middy/http-urlencode-body-parser": "^2.5.1",
+    "aws-multipart-parser": "^0.2.1",
+    "aws-sdk": "^2.973.0",
+    "axios": "^0.21.1",
+    "crypto": "^1.0.1",
+    "form-data": "^4.0.0",
+    "generate-password": "^1.7.0",
+    "hellosign-sdk": "^2.0.0",
+    "http-errors": "1.8.0",
+    "jose": "^3.17.0",
+    "jsforce": "^1.11.0",
+    "sf-jwt-token": "^1.3.0",
+    "source-map-support": "^0.5.19",
+    "stream": "0.0.2"
+  },
+  "devDependencies": {
+    "@serverless/typescript": "^2.23.0",
+    "@types/aws-lambda": "^8.10.71",
+    "@types/hellosign-sdk": "^1.6.7",
+    "@types/node": "^14.14.25",
+    "esbuild": "^0.14.14",
+    "json-schema-to-ts": "^1.5.0",
+    "serverless": "^2.72.2",
+    "serverless-esbuild": "^1.23.3",
+    "serverless-ngrok-tunnel": "^0.1.0",
+    "serverless-offline": "^8.4.0",
+    "serverless-offline-sns": "0.68.0",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.1.3"
+  },
+  "author": "The serverless authors",
+  "license": "MIT"
+}
