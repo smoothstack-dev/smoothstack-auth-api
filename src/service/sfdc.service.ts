@@ -25,12 +25,12 @@ export const getSFDCConnection = async () => {
 export const fetchJobManagementAllowedEmails = async (conn: any): Promise<string[]> => {
   try {
     const { records } = await conn.query(
-      `SELECT Allowed_Domains__c FROM Contractor_Xchange_Portal_Settings__mdt WHERE DeveloperName = 'Settings'`
+      `SELECT Job_Description_Mgnt_Allowed_Domains__c FROM Job_Portal_Settings__mdt WHERE DeveloperName = 'Settings'`
     );
-    const emailList = JSON.parse(records[0].Allowed_Domains__c);
+    const emailList = JSON.parse(records[0].Job_Description_Mgnt_Allowed_Domains__c);
+    console.log(emailList);
     return emailList;
   } catch {
-    console.log('Error fetchJobManagementAllowedEmails');
     return [];
   }
 };

@@ -19,11 +19,9 @@ const jobManageAllowedEmailList = async (event: APIGatewayEvent) => {
 const validateEmailList = async (event: APIGatewayEvent) => {
   try {
     // send logined emails to this api
-    // TODO: It's currently using other meta type. Need to update it later
     const msEmail = event.queryStringParameters.email || '';
     const sfConnection = await getSFDCConnection();
     const allowedEmailList = await fetchJobManagementAllowedEmails(sfConnection);
-    allowedEmailList.push('derek.chou@smoothstack.com');
     const isAllowed = allowedEmailList.includes(msEmail);
     console.log('isAllowed', msEmail, isAllowed);
     return {
