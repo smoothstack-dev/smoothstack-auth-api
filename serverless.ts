@@ -1,6 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 
 import jobManageAllowedEmailList from '@functions/jobManageAllowedEmailList';
+import users from '@functions/users';
 
 const serverlessConfiguration: AWS = {
   service: 'smoothstack-auth-api',
@@ -55,6 +56,7 @@ const serverlessConfiguration: AWS = {
   // import the function via paths
   functions: {
     jobManageAllowedEmailList,
+    users,
   },
   // This is for SNS
   // resources: {
