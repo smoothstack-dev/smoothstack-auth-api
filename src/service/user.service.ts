@@ -3,11 +3,11 @@ import { getMSAuthData, MS_GQL_ENDPOINT } from './auth/microsoft.oauth.service';
 
 export const retrieveUsers = async () => {
   const { token } = await getMSAuthData();
-  let user = [];
+  let users = [];
   let nextPageLink = undefined;
   const getDataPage = async () => {
     try {
-      let url = `${MS_GQL_ENDPOINT}users?$top=100`;
+      let url = `${MS_GQL_ENDPOINT}users?$top=100&$select=displayName,givenName,surname,jobTitle,mail,mobilePhone,accountEnabled`;
       if (nextPageLink) url = nextPageLink;
       console.log('url', url);
       return await axios.get(url, {
@@ -22,9 +22,9 @@ export const retrieveUsers = async () => {
 
   while (true) {
     const { data } = await getDataPage();
-    user.push(...data.value);
+    users.push(...data.value);
     nextPageLink = data['@odata.nextLink'];
     if (!data['@odata.nextLink']) break;
   }
-  return user;
+  return users.filter((user: any) => !!user.accountEnabled);
 };
